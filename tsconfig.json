@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": false,
+    "lib": [
+      "dom",
+      "es6",
+      "es5"
+    ],
+    "allowJs": false,
+    "checkJs": false,
+    "sourceMap": false,
+    "outDir": "assets/js",
+    "rootDir": "assets/ts",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

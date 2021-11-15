@@ -1,0 +1,21 @@
+{
+  "name": "personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:sass": "sass assets/sass/:assets/css/ --watch --update",
+    "build:ts": "tsc -b tsconfig.json --watch",
+    "start": " concurrently  yarn:build:ts  yarn:build:sass",
+    "build": "tsc -b tsconfig.json && sass assets/sass/:assets/css/ -s compressed --no-source-map"
+  },
+  "author": {
+    "name": "Murage",
+    "url": "https://murage.mimidots.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "sass": "^1.43.4",
+    "typescript": "^4.4.4"
+  }
+}
