@@ -1,0 +1,42 @@
+$default-link-color: #40a0f5;
+
+html, body, div, p, a {
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+}
+
+a {
+  color: $default-link-color;
+}
+
+
+.projects-list {
+  .project-box {
+    border-color: #eee;
+
+    .intro-box {
+      border-color: #eee;
+    }
+
+    .reaction {
+      border-color: #ccc;
+
+      .reaction-icon {
+        border-color: #ccc;
+        background-color: #e8eaeb;
+      }
+    }
+
+    .tech-stack {
+      .tech-used {
+        background-color: #ccc;
+        color: #2f2f2f;
+        border-color: #ccc;
+      }
+    }
+
+    .btn-toggle-view {
+      color: $default-link-color;
+    }
+  }
+}

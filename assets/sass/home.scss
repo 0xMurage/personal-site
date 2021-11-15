@@ -1,0 +1,270 @@
+@import 'variables';
+
+.main {
+  section.intro {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+
+    article {
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      .role {
+        font-size: 14px;
+        line-height: 2.5em;
+      }
+
+      .short-intro {
+        line-height: 2em;
+        font-size: 16px;
+      }
+    }
+
+    .intro-image-box {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      width: 50.66666666%;
+
+      img {
+        height: auto;
+        border-radius: 50%;
+        max-width: 100%;
+      }
+    }
+
+    .action-buttons {
+      margin-top: 18px;
+      margin-bottom: 18px;
+
+      a {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  section.about {
+    margin-bottom: 40px;
+
+    .title {
+      text-align: center;
+    }
+
+    .subtitle {
+      margin-top: 1em;
+    }
+
+    .content {
+      line-height: 2em;
+    }
+  }
+
+  section.services {
+    .services-list {
+      grid-template-columns: repeat(auto-fill, 250px);
+      display: grid;
+      justify-items: center;
+      grid-gap: 24px;
+      justify-content: center;
+
+      .list-item {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px;
+        padding: 21px;
+        width: 100%;
+
+        .service-title {
+          padding-top: 10px;
+        }
+      }
+
+      .list-item {
+        svg {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+  }
+
+  section.process {
+    .process-lifecycle {
+      .lifecycle {
+        list-style: none;
+        display: grid;
+        grid-gap: 35px 100px;
+        grid-template-columns: repeat(auto-fit, 200px);
+        justify-content: center;
+
+        .step {
+          width: 200px;
+          height: 150px;
+          border: solid 1px;
+          line-break: auto;
+          //border-radius: 50%;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          span.counter {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: -30px;
+            padding-bottom: 30px;
+          }
+        }
+
+      }
+    }
+  }
+
+  section.tech-stack {
+
+    .stack-list {
+      display: grid;
+      grid-gap: 28px 28px;
+      grid-template-columns: repeat(auto-fit, 80px);
+      justify-content: center;
+
+      .list-item.image-box {
+        cursor: help;
+
+        svg {
+          width: 70px;
+          height: 50px;
+        }
+
+      }
+    }
+  }
+
+  section.clients {
+
+    .client-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .client-item {
+        min-width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-left: 18px;
+        padding-right: 18px;
+
+        .image-box {
+          height: 100px;
+          padding-bottom: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          justify-content: flex-end;
+          align-content: space-around;
+          flex-wrap: wrap;
+
+          img {
+            width: auto;
+            max-height: 100%;
+          }
+
+          svg {
+            min-width: 100px;
+            max-height: 100px;
+          }
+        }
+
+        .client-title {
+          font-size: 12px;
+        }
+      }
+    }
+
+  }
+
+}
+
+footer {
+  p.copyright {
+    padding: 16px;
+    text-align: center;
+  }
+}
+
+.main section article {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 48px;
+
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .subtitle {
+    width: 65%;
+    text-align: center;
+    border-bottom: 1px solid $primary-color;
+    line-height: 0.1em;
+    margin: 1em auto 48px;
+
+    span {
+      background: white;
+      padding: 0 10px;
+    }
+  }
+}
+
+
+/**Target medium*/
+@media (min-width: 768px) {
+  .main {
+    padding-top: 32px;
+
+    section {
+      article {
+        .subtitle {
+          width: 25%;
+        }
+
+      }
+    }
+
+    section.intro {
+      width: 80%;
+
+      .short-intro {
+        width: 90%;
+      }
+    }
+
+    section.about {
+      margin-bottom: 80px;
+    }
+
+    section.clients {
+      .client-list {
+        justify-content: start;
+      }
+    }
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+}

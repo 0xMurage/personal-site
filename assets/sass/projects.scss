@@ -1,0 +1,209 @@
+body {
+  background-color: #f5f5f5;
+}
+
+main.main {
+  margin-top: 24px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  .projects-list {
+    display: block;
+    padding-right: 16px;
+    padding-left: 16px;
+    justify-content: center;
+
+  }
+
+  .project-box {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    margin: 8px 0;
+    align-self: start;
+
+    .image-box {
+      height: 300px;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .intro-box {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .bottom {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 18px;
+
+        .reaction {
+          display: flex;
+          align-items: center;
+          border-style: solid;
+          border-width: 1px;
+          margin-right: 40px;
+          min-width: 80px;
+
+          .reaction-icon {
+            min-width: 55px;
+            text-align: center;
+            border-right-width: 1px;
+            border-right-style: solid;
+            cursor: pointer;
+            padding-bottom: 2px;
+
+            svg {
+              height: 18px;
+              width: 18px;
+              transform: rotate(225deg);
+
+              path {
+                fill: #b1b1b1;
+              }
+            }
+
+            &.liked {
+              svg path {
+                fill: orangered;
+              }
+            }
+          }
+
+          .reaction-count {
+            margin: 0 auto;
+            padding-left: 4px;
+            padding-right: 4px;
+          }
+        }
+
+        .demo-links {
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .about-box {
+      padding: 16px;
+
+      .body {
+        .description {
+        }
+
+        .tech-stack {
+          display: flex;
+          flex-wrap: wrap;
+          padding-top: 18px;
+
+          .tech-used {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            padding: 3px 5px;
+            border-style: solid;
+            border-width: 1px;
+            font-size: 13px;
+          }
+        }
+      }
+
+      .btn-toggle-view {
+        padding-top: 8px;
+        font-size: 14px;
+        cursor: pointer;
+
+        .label-more {
+          display: none;
+        }
+
+        .label-less {
+          display: block;
+        }
+      }
+
+      &.collapsed {
+        .body {
+          height: 50px;
+          overflow: hidden;
+          position: relative;
+
+          &:after {
+            background: -webkit-linear-gradient(rgba(255, 255, 255, 0), #fff);
+            background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0, #fff 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+            background-image: linear-gradient(rgba(255, 255, 255, 0), #fff);
+            background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0, #fff 100%);
+            bottom: 0;
+            content: "";
+            height: 30px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+          }
+        }
+
+        .btn-toggle-view {
+          .label-more {
+            display: block;
+          }
+
+          .label-less {
+            display: none;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+/**Target medium and up*/
+@media (min-width: 768px) {
+  main.main {
+    margin-top: 35px;
+
+    .projects-list {
+      display: grid;
+      grid-column-gap: 18px;
+      grid-row-gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+
+      .image-box {
+        img {
+          //  cursor: zoom-in;
+        }
+
+        &.zoomed {
+          background-color: white;
+          height: 100%;
+          position: absolute;
+          z-index: 1000;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.95);
+
+          img {
+            cursor: zoom-out;
+          }
+        }
+      }
+    }
+  }
+}
