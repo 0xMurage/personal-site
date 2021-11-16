@@ -1,14 +1,152 @@
 main.main {
-  .experience {
-    border: solid 1px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 35px;
+
+  section.experience {
+    .title {
+      font-size: 1.4em;
+      padding-bottom: 24px;
+    }
+
+    article.work-post {
+      header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+
+        .entry-company {
+          padding-left: 4px;
+          font-size: 14px;
+        }
+
+        .entry-role {
+          font-size: 14px;
+          text-align: center;
+          border-left-width: 1px;
+          border-left-style: solid;
+        }
+
+        .entry-timeline {
+          padding-left: 8px;
+          font-size: 13px;
+          color: #919191;
+        }
+      }
+
+      .responsibilities {
+        line-height: 2em;
+      }
+    }
+  }
+
+
+  aside {
+    article.sub-section {
+      h2.title {
+        font-size: 1.4em;
+        padding-bottom: 18px;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 6px;
+
+        li {
+          padding-bottom: 10px;
+          line-height: 1.5em;
+        }
+      }
+    }
+
+    article.education {
+      .content li {
+        display: flex;
+        flex-direction: column;
+
+        .what {
+        }
+
+        .where, .when {
+          font-size: 14px;
+          color: #919191;
+        }
+      }
+    }
+
+    article.sub-section:not(:first-of-type) {
+      margin-top: 30px;
+    }
   }
 
   .github-contributions {
-    border: solid 1px;
+    .title {
+      font-size: 1.4em;
+      padding-bottom: 18px;
+    }
+
+    .github-graph {
+      font-size: 12px;
+    }
+
+    .f6 {
+      font-size: 13px;
+
+      .float-left {
+        display: none;
+      }
+    }
   }
 
-  aside {
-    border: solid 1px;
-  }
+}
 
+/**Target small screens and down **/
+
+@media (max-width: 480px) {
+  .main .experience .work-post .entry-timeline {
+    display: none;
+  }
+}
+
+/**Target medium and up*/
+@media (min-width: 768px) {
+  main.main {
+    display: grid;
+    //grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 70% 30%;
+    grid-row-gap: 24px;
+    grid-column-gap: 24px;
+
+    section.experience {
+      article.work-post {
+        header {
+          grid-template-columns: 1fr 2fr 1fr;
+        }
+
+        .entry-company {
+          padding-right: 8px;
+          padding-left: 4px;
+        }
+
+        .entry-role {
+          border-right-width: 1px;
+          border-right-style: solid;
+        }
+
+      }
+    }
+
+    aside {
+      grid-row-start: span 2;
+      grid-column-start: 2;
+      grid-row-end: 2;
+      grid-column-end: 2;
+    }
+
+
+  }
 }

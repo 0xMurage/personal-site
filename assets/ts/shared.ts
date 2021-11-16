@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const elems: NodeListOf<HTMLElement> = document.querySelectorAll('.current-year');
     const year = new Date().getFullYear()
-    console.log(year)
     for (let i = 0; i < elems.length; i++) {
         elems[i].innerText = String(year);
     }
