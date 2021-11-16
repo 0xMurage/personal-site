@@ -1,18 +1,30 @@
 $default-link-color: #40a0f5;
+$navbar-bg-on-scroll: #d7d7d7;
 
 html, body, div, p, a {
-  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 }
 
 a {
   color: $default-link-color;
+  text-decoration: none;
 }
 
+.navbar {
+  .nav-item .nav-link {
+    color: black;
+  }
+
+  &.opaque {
+    background-color: $navbar-bg-on-scroll;
+    z-index: 1;
+  }
+}
 
 .projects-list {
   .project-box {
-    border-color: #eee;
+    border-color: #d5d5d5;
 
     .intro-box {
       border-color: #eee;
@@ -38,5 +50,11 @@ a {
     .btn-toggle-view {
       color: $default-link-color;
     }
+  }
+}
+
+.contact-form {
+  input, textarea {
+    border-color: #515151;
   }
 }
