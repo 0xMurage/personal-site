@@ -1,0 +1,30 @@
+---
+- name: Upload all files to the remote server
+  become: true
+  gather_facts: no
+  hosts: all
+  vars:
+    local_path: "{{local_workspace}}"
+    remote_path: "{{remote_workspace}}"
+    owner_group: "{{remote_owner_group}}"
+    owner_user: "{{remote_owner_user}}"
+
+  tasks:
+    - name: Create remote directory if it does not exist
+      ansible.builtin.file:
+        path: "{{remote_path}}"
+        state: directory
+        mode: '0750'
+        follow: false
+        owner: "{{remote_files_owner_user}}"
+        group: "{{remote_files_owner_group}}"
+
+    - name: Copy new application files to deployment path
+      ansible.posix.synchronize:
+        src: "{{local_path}}/"
+        dest: "{{remote_path}}/"
+        delete: yes
+        recursive: yes
+        perms: no
+        rsync_opts:
+          - "--exclude-from={{local_path}}/files/.rsync.ignore"
