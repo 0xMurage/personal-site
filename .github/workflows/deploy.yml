@@ -33,7 +33,7 @@ jobs:
       - name: Run ansible deployment playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: ${{github.workspace}}/.ansible/playbooks/playbook.yml
+          playbook: ${{github.workspace}}/.ansible/playbooks/deploy.yml
           key: ${{secrets.SSH_PRIVATE_KEY}}
           requirements: ${{github.workspace}}/.ansible/files/requirements.yml
           directory: /home/ansible-temp
