@@ -1,0 +1,48 @@
+
+main.main {
+
+  .error-not-found {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .image-box {
+      display: flex;
+      justify-content: center;
+
+      svg {
+        height: auto;
+        width: 70%;
+        max-height: 300px;
+      }
+    }
+
+    .title, .description, .action-buttons {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      line-height: 1.33em;
+    }
+
+    .title {
+      font-size: 28px;
+    }
+
+    .description {
+      max-width: 500px;
+
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      a {
+        line-height: 1.33em;
+        white-space: nowrap;
+        margin: 0 8px 8px;
+      }
+    }
+  }
+}
