@@ -22,4 +22,4 @@
         recursive: yes
         perms: no
         rsync_opts:
-          - "--exclude-from={{local_workspace}}/files/.rsync.ignore"
+          - "--exclude-from={{local_workspace}}/.ansible/files/.rsync.ignore"
