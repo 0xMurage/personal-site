@@ -52,13 +52,23 @@ main.main {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+
+  min-height: calc(100vh - #{($main-nav-height+$main-footer-height)});
 }
 
-footer{
-  .copyright{
+footer {
+  height: $main-footer-height;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 16px;
+
+  .copyright {
     text-align: center;
   }
 }
+
 /*Only on small devices*/
 @media (max-width: 480px) {
   .d-none-sm {
