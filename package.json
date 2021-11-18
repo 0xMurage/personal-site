@@ -3,18 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:sass": "sass assets/sass/:assets/css/ --watch --update",
-    "build:ts": "tsc -b tsconfig.json --watch",
-    "start": " concurrently  yarn:build:ts  yarn:build:sass",
-    "build": "tsc -b tsconfig.json && sass assets/sass/:assets/css/ -s compressed --no-source-map"
+    "watch:sass": "sass assets/sass/:assets/css/ --watch --update",
+    "watch:ts": "tsc -b tsconfig.json --watch",
+    "start": "concurrently  yarn:watch:ts  yarn:watch:sass",
+    "build:sass": "sass assets/sass/:assets/css/ -s compressed --no-source-map",
+    "build:ts": "tsc -b tsconfig.json ",
+    "clean:assets": "git clean -Xfd assets/",
+    "sass:prefix": "postcss assets/css/*.css --use autoprefixer --no-map  -d assets/css/",
+    "build": "yarn clean:assets && yarn build:sass && yarn build:ts  && yarn sass:prefix"
   },
+  "browserslist": [
+    "last 4 versions",
+    "cover 99.5%",
+    "not IE 10"
+  ],
   "author": {
     "name": "Murage",
     "url": "https://murage.mimidots.com"
   },
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "concurrently": "^6.3.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
     "sass": "^1.43.4",
     "typescript": "^4.4.4"
   }
