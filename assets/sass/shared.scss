@@ -67,3 +67,22 @@ img {
     cursor: pointer;
   }
 }
+
+[data-title] {
+  position: relative;
+}
+
+[data-title]:hover::after {
+  white-space: nowrap;
+  content: attr(data-title);
+  position: absolute;
+  top: 24%;
+  left: 64%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 13px;
+  z-index: 1;
+  border-radius: 6px;
+}
