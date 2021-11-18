@@ -13,6 +13,7 @@
         follow: false
         owner: "{{remote_owner_group}}"
         group: "{{remote_owner_user}}"
+      no_log: True
 
     - name: Copy new application files to deployment path
       ansible.posix.synchronize:
@@ -22,4 +23,5 @@
         recursive: yes
         perms: no
         rsync_opts:
-          - "--exclude-from={{local_workspace}}/.ansible/files/.rsync.ignore"
+          - "--exclude-from={{local_workspace}}/.ansible/files/rsync.ignore"
+      no_log: True
