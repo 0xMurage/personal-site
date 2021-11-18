@@ -35,7 +35,6 @@ jobs:
         with:
           playbook: ${{github.workspace}}/.ansible/playbooks/playbook.yml
           key: ${{secrets.SSH_PRIVATE_KEY}}
-          vault_password: ${{secrets.ANSIBLE_VAULT_PASSWORD}}
           requirements: ${{github.workspace}}/.ansible/files/requirements.yml
           directory: /home/ansible-temp
           inventory: |
