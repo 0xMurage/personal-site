@@ -26,6 +26,13 @@ jobs:
       - name: Build  assets for production
         run: yarn build
 
+      - name: Update files and directory permissions
+        run: |
+          sudo find ./assets -type d -exec chmod 0750 {} +
+          sudo find ./assets  -type f -exec chmod 0644 {} +
+          sudo find -type f -maxdepth 1 -exec chmod 0644 {} +
+
+
       #  Execute ansible playbooks
       - name: Create ansible temp env config directory
         run: sudo mkdir -p /home/ansible-temp

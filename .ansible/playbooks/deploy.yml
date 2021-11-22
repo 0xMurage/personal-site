@@ -11,8 +11,8 @@
         state: directory
         mode: '0750'
         follow: false
-        owner: "{{remote_owner_group}}"
-        group: "{{remote_owner_user}}"
+        group: "{{remote_owner_group}}"
+        owner: "{{remote_owner_user}}"
       no_log: True
 
     - name: Copy new application files to deployment path
@@ -21,7 +21,9 @@
         dest: "{{remote_workspace}}/"
         delete: yes
         recursive: yes
-        perms: no
+        perms: yes
+        owner: no
+        group: no
         rsync_opts:
           - "--exclude-from={{local_workspace}}/.ansible/files/rsync.ignore"
       no_log: True
