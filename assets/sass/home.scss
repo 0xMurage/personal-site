@@ -3,23 +3,25 @@
 .main {
   section.intro {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     margin-bottom: 40px;
+    padding-top: 21px;
 
     article {
       h1 {
         font-size: 32px;
         font-weight: 600;
+        padding-top: 15px;
       }
 
       .role {
-        font-size: 14px;
-        line-height: 2.5em;
+        padding-bottom: 15px;
+        padding-top: 15px;
       }
 
       .short-intro {
-        line-height: 2em;
-        font-size: 16px;
+        line-height: 48px;
+        font-size: 21px;
       }
     }
 
@@ -28,18 +30,18 @@
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: space-around;
-      width: 50.66666666%;
+      width: 100%;
 
       img {
+        max-height: 100%;
         height: auto;
         border-radius: 50%;
-        max-width: 100%;
+        width: 100%;
       }
     }
 
     .action-buttons {
-      margin-top: 18px;
-      margin-bottom: 18px;
+      margin-top: 32px;
       display: flex;
 
       a {
@@ -60,7 +62,7 @@
     }
 
     .content {
-      line-height: 2em;
+      line-height: 42px;
     }
   }
 
@@ -164,6 +166,8 @@
         justify-content: flex-end;
         padding-left: 18px;
         padding-right: 18px;
+        padding-top: 13px;
+        margin-bottom: 13px;
 
         .image-box {
           height: 100px;
@@ -171,7 +175,7 @@
           display: flex;
           flex-direction: column;
           align-items: baseline;
-          justify-content: flex-end;
+          justify-content: center;
           align-content: space-around;
           flex-wrap: wrap;
 
@@ -204,7 +208,6 @@ footer {
 }
 
 .main section article {
-  padding-left: 16px;
   padding-right: 16px;
   margin-bottom: 48px;
 
@@ -224,6 +227,7 @@ footer {
     span {
       background: white;
       padding: 0 10px;
+      white-space: nowrap;
     }
   }
 }
@@ -244,26 +248,39 @@ footer {
     }
 
     section.intro {
-      width: 80%;
+      width: 100%;
+      flex-direction: row;
 
-      .short-intro {
-        width: 90%;
+      article {
+        padding-top: 60px;
+
+        .short-intro {
+          width: 85%;
+        }
+      }
+
+      .intro-image-box {
+        .d-sm-only {
+          display: none;
+        }
       }
     }
 
     section.about {
+      padding-top: 80px; // to compensate scroll on desktop
       margin-bottom: 80px;
     }
 
     section.clients {
       .client-list {
         justify-content: start;
+
+        .client-item {
+          padding-top: 13px;
+          margin-bottom: 13px;
+        }
       }
     }
   }
-
-}
-
-@media (min-width: 1200px) {
 
 }

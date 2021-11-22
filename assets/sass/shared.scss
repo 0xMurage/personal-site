@@ -52,6 +52,10 @@ section {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   vertical-align: middle;
 }
@@ -60,7 +64,7 @@ img {
   padding: 9px;
   border: 1px solid;
   text-decoration: none;
-  line-height: 18px;
+  line-height: 21px;
   font-size: 16px;
 
   &:hover {
@@ -85,4 +89,8 @@ img {
   font-size: 13px;
   z-index: 1;
   border-radius: 6px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
