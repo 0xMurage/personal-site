@@ -26,6 +26,14 @@ jobs:
       - name: Build  assets for production
         run: yarn build
 
+      - name: Naively minify large html files
+        run: |
+          yarn add -D html-minifier
+          npx html-minifier --collapse-whitespace --remove-comments --minify-js true index.html -o index.html
+          npx html-minifier --collapse-whitespace --remove-comments --minify-js true portfolio.html -o portfolio.html
+          npx html-minifier --collapse-whitespace --remove-comments --minify-js true resume.html -o resume.html
+          npx html-minifier --collapse-whitespace --remove-comments --minify-js true 404.html -o 404.html
+
       - name: Update files and directory permissions
         run: |
           sudo find ./assets -type d -exec chmod 0750 {} +
