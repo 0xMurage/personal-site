@@ -11,6 +11,17 @@ a {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: #00823B;
+  border-color: #00823B;
+  color: white;
+}
+
+.btn-secondary {
+  color: #494b4c;
+  border-color: #494b4c;
+}
+
 .navbar {
   .nav-item .nav-link {
     color: black;
@@ -22,6 +33,27 @@ a {
   }
 }
 
+
+/** Landing page **/
+section.services {
+  .services-list {
+    .list-item {
+      border-color: #9cbcbd;
+    }
+  }
+}
+
+section.process {
+  .process-lifecycle {
+    .lifecycle {
+      .step {
+        border-color: #9cbcbd;
+      }
+    }
+  }
+}
+
+/** Portfolio page */
 .projects-list {
   .project-box {
     border-color: #d5d5d5;
@@ -53,19 +85,9 @@ a {
   }
 }
 
+/** Contact form page **/
 .contact-form {
   input, textarea {
     border-color: #515151;
   }
-}
-
-.btn-primary {
-  background-color: #00823B;
-  border-color: #00823B;
-  color: white;
-}
-
-.btn-secondary {
-  color: #494b4c;
-  border-color: #494b4c;
 }
