@@ -1,5 +1,16 @@
-$default-link-color: #40a0f5;
-$navbar-bg-on-scroll: #d7d7d7;
+:root {
+  --navbar-opaque-bg: #d7d7d7;
+  --primary-color: #00823B;
+  --primary-link-color: #40a0f5;
+
+  --primary-btn-color: white;
+  --primary-btn-bg-color: #00823B;
+  --primary-btn-border-color: #00823B;
+  --secondary-btn-color: #494b4c;
+  --secondary-btn-bg-color: #ffff;
+  --secondary-btn-border-color: #494b4c;
+
+}
 
 html, body, div, p, a {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -7,19 +18,21 @@ html, body, div, p, a {
 }
 
 a {
-  color: $default-link-color;
+  color: var(--primary-link-color);
   text-decoration: none;
 }
 
 .btn-primary {
-  background-color: #00823B;
-  border-color: #00823B;
-  color: white;
+  background-color: var(--primary-btn-bg-color);
+  border-color: var(--primary-btn-border-color);
+  color: var(--primary-btn-color);
 }
 
 .btn-secondary {
-  color: #494b4c;
-  border-color: #494b4c;
+
+  background-color: var(--secondary-btn-bg-color);
+  border-color: var(--secondary-btn-border-color);
+  color: var(--secondary-btn-color);
 }
 
 .navbar {
@@ -28,7 +41,7 @@ a {
   }
 
   &.opaque {
-    background-color: $navbar-bg-on-scroll;
+    background-color: var(--navbar-opaque-bg);
     z-index: 1;
   }
 }
@@ -80,7 +93,7 @@ section.process {
     }
 
     .btn-toggle-view {
-      color: $default-link-color;
+      color: var(--primary-link-color);
     }
   }
 }
