@@ -66,6 +66,33 @@ section.process {
   }
 }
 
+.animated-box-border {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: calc(2px / -1);
+    left: calc(2px / -1);
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) 100%), linear-gradient(to top, var(--primary-color) 50%, transparent 50%), linear-gradient(to top, var(--primary-color) 50%, transparent 50%), linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) 100%), linear-gradient(to left, var(--primary-color) 0%, var(--primary-color) 100%);
+    background-size: 100% 2px, 2px 200%, 2px 200%, 0 2px, 0 2px;
+    background-position: 50% 100%, 0 0, 100% 0, 100% 0, 0 0;
+    background-repeat: no-repeat, no-repeat;
+    transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
+    transform: scaleX(0) rotate(0deg);
+    transition-delay: 0.6s, 0.3s, 0s;
+  }
+
+  &:hover:before {
+    background-size: 200% 2px, 2px 400%, 2px 400%, 55% 2px, 55% 2px;
+    background-position: 50% 100%, 0 100%, 100% 100%, 100% 0, 0 0;
+    transform: scaleX(1) rotate(0deg);
+    transition-delay: 0s, 0.3s, 0.6s;
+  }
+}
+
 /** Portfolio page */
 .projects-list {
   .project-box {
