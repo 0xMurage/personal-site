@@ -5,25 +5,45 @@
   hosts: all
 
   tasks:
+    - name: Generate timestamp for deployment use
+      ansible.builtin.shell:
+        cmd: echo $(date +%s)
+      register: global_timestamp
+
     - name: Create remote directory if it does not exist
       ansible.builtin.file:
-        path: "{{remote_workspace}}"
+        path: "{{remote_workspace}}/{{global_timestamp.stdout}}"
         state: directory
         mode: '0750'
         follow: false
         group: "{{remote_owner_group}}"
         owner: "{{remote_owner_user}}"
       no_log: True
+      register: project_dir
 
     - name: Copy new application files to deployment path
       ansible.posix.synchronize:
         src: "{{local_workspace}}/"
-        dest: "{{remote_workspace}}/"
+        dest: "{{project_dir.path}}"
         delete: yes
         recursive: yes
-        perms: yes
+        perms: no
         owner: no
         group: no
         rsync_opts:
           - "--exclude-from={{local_workspace}}/.ansible/files/rsync.ignore"
       no_log: True
+
+    - name: "Link recent version to current folder"
+      ansible.builtin.file:
+        src: "{{project_remote.path}}/"
+        dest: "{{remote_workspace}}/current"
+        state: link
+        force: yes
+
+    ### POST CLEANUP
+    - name: "Clean up old versions of deployed "
+      ansible.builtin.shell:
+        cmd: "find -maxdepth 1 -mindepth 1 -type d ! -path './storage' |sort -n -r|tail -n +{{min|default('2')}} | xargs rm -rf"
+      args:
+        chdir: "{{remote_workspace}}"
