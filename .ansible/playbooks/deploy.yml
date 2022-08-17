@@ -36,7 +36,7 @@
 
     - name: "Link recent version to current folder"
       ansible.builtin.file:
-        src: "{{project_remote.path}}/"
+        src: "{{project_dir.path}}/"
         dest: "{{remote_workspace}}/current"
         state: link
         force: yes
