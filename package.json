@@ -19,15 +19,15 @@
   ],
   "author": {
     "name": "Murage",
-    "url": "https://murage.mimidots.com"
+    "url": "https://murageyun.com"
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "concurrently": "^6.3.0",
-    "postcss": "^8.3.11",
-    "postcss-cli": "^9.0.2",
-    "sass": "^1.43.4",
-    "typescript": "^4.4.4"
+    "autoprefixer": "^10.4.8",
+    "concurrently": "^7.3.0",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "sass": "^1.54.4",
+    "typescript": "^4.7.4"
   }
 }
