@@ -1,6 +1,6 @@
 ---
 - name: Upload all files to the remote server
-  become: true
+  become: false
   gather_facts: no
   hosts: all
 
