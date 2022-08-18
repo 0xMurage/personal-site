@@ -27,6 +27,7 @@
         dest: "{{project_dir.path}}"
         delete: yes
         recursive: yes
+        archive: no
         perms: no
         owner: no
         group: no
