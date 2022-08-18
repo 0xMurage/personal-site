@@ -45,6 +45,6 @@
     ### POST CLEANUP
     - name: "Clean up old versions of deployed "
       ansible.builtin.shell:
-        cmd: "find -maxdepth 1 -mindepth 1 -type d ! -path './storage' |sort -n -r|tail -n +{{min|default('2')}} | xargs rm -rf"
+        cmd: "find -maxdepth 1 -mindepth 1 -type d ! -path './storage' |sort -n -r|tail -n +{{min|default('3')}} | xargs rm -rf"
       args:
         chdir: "{{remote_workspace}}"
