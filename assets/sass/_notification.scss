@@ -1,0 +1,40 @@
+.toast-notification {
+  display: none;
+  min-height: 50px;
+  min-width: 180px;
+  max-width: 230px;
+  position: sticky;
+  bottom: 18%;
+  left: 80%;
+  border-radius: 4px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  cursor: not-allowed;
+
+  .toast-message {
+    padding: 12px;
+    font-size: 15px;
+    color: white;
+  }
+
+  &.show {
+    display: flex;
+  }
+
+  &.error-message{
+    background-color: #fa6247;
+  }
+  &.success-message{
+    background-color: #2bc33a;
+  }
+}
+
+
+/**Target medium and up*/
+@media (min-width: 768px) {
+
+  .toast-notification {
+    bottom: 18px;
+  }
+}

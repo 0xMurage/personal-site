@@ -1,3 +1,5 @@
+@import 'notification';
+
 body {
   background-color: #7884a3;
   background: linear-gradient(60deg, #6e6d7c 2%, #7884a3 69%);
@@ -183,33 +185,6 @@ main.main {
 
     }
   }
-
-  .error-toast {
-    display: none;
-    background-color: #fa6247;
-    min-height: 50px;
-    min-width: 180px;
-    max-width: 230px;
-    position: sticky;
-    bottom: 18%;
-    left: 80%;
-    border-radius: 4px;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    cursor: not-allowed;
-
-    .error-message {
-      padding: 10px;
-      font-size: 14px;
-      color: white;
-    }
-
-    &.show {
-      display: flex;
-    }
-  }
-
 }
 
 
@@ -246,10 +221,6 @@ main.main {
           }
         }
       }
-    }
-
-    .error-toast {
-      bottom: 18px;
     }
   }
 }
