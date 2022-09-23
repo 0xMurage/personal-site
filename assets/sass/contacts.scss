@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'notification';
+@import 'loader';
 
 input, textarea {
   -webkit-appearance: none;
@@ -72,8 +73,23 @@ main.main {
           font-weight: 400;
         }
       }
+
+      .btn {
+        &.submission-wait {
+          width: 82.65px;
+          height: 41px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+
     }
   }
+}
+
+.d-none {
+  display: none !important;
 }
 
 /**Target medium and up*/

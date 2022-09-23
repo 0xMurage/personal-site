@@ -6,7 +6,8 @@
     "lib": [
       "dom",
       "es6",
-      "es5"
+      "es5",
+      "ES2018.Promise"
     ],
     "allowJs": false,
     "checkJs": false,
