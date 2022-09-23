@@ -41,7 +41,7 @@ export function notification(body: Error | { status: number, message: string }, 
 
     if (body instanceof Error) {
         elem.textContent = 'Unexpected error encountered';
-    } else if (body.status != 404 && body.status != 422) {
+    } else if (body.status >= 400 && body.status < 500) {
         elem.textContent = 'Hmm. Your request could not be processed by the server';
     } else {
         elem.textContent = body.message
@@ -49,5 +49,5 @@ export function notification(body: Error | { status: number, message: string }, 
     elem.parentElement?.classList.add('show', `${type}-message`)
     setTimeout(() => {
         elem.parentElement?.classList.remove('show', `${type}-message`)
-    }, 6000);
+    }, 12000);
 }

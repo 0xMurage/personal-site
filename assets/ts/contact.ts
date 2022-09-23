@@ -23,21 +23,23 @@ function contactForm() {
 function sendMessage(agent:GetResult) {
 
     const payload = {
-        name: (<HTMLInputElement>document.getElementById('name')).value,
-        email: (<HTMLInputElement>document.getElementById('email')).value,
-        message: (<HTMLInputElement>document.getElementById('message')).value,
+        name: (<HTMLInputElement>document.getElementById('name'))?.value,
+        email: (<HTMLInputElement>document.getElementById('email'))?.value,
+        message: (<HTMLInputElement>document.getElementById('message'))?.value,
         visitor: agent.visitorId
     }
 
-    fetch(`/api/v1/messages`, {
+    fetch(`https://murageyun.com/api/v1/messages`, {
         method:'POST',
         headers: {'accept': 'application/json','content-type':'application/json'},
         body: JSON.stringify(payload)
     })
         .then((rs) => errorInterceptor(rs))
-        .then((res) => res.json())
         .then(()=>{
-            notification({message:'Message sent successfully',status:200},'success')
+            notification({message:'Thank you for reaching out. Your message has been received and I will get back to you as soon as possible.',status:200},'success');
+            (<HTMLInputElement>document.getElementById('name')).value='';
+            (<HTMLInputElement>document.getElementById('email')).value='' ;
+            (<HTMLInputElement>document.getElementById('message')).value='';
         }).catch((err)=>{
             notification(err,'error')
     })
