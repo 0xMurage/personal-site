@@ -8,15 +8,15 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function contactForm() {
-    const contactButton = document.getElementById('contactFormSubmitForm');
-    if (contactButton) {
-        contactButton.addEventListener('click', () => {
-
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+    if (contactForm) {
+        contactForm.addEventListener('submit', (evt) => {
+            evt.preventDefault(); //prevent page reload
             ((window.FingerprintJS).load() as Promise<any>)
                 .then((agent: Agent) => agent.get())
                 .then((agent) => sendMessage(agent))
-        });
-    }
+        })
+}
 }
 
 

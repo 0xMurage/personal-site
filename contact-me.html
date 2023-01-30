@@ -106,7 +106,7 @@
                                                                                           stroke-width="3.4"
                                                                                           d="M30 45a11 11 0 0 0 14-2l1-1a4 4 0 0 0 0-6l-6-6a4 4 0 0 0-5 0h0a4 4 0 0 1-6 0L18 20a4 4 0 0 1 0-6h0a4 4 0 0 0 0-5l-6-6a4 4 0 0 0-6 0L5 4a11 11 0 0 0-2 14 99 99 0 0 0 27 27Z"/></svg>
                     </span>
-                    <span>+254</span> &nbsp;  <span> 704</span>&nbsp;  <span>413</span> &nbsp; <span>577</span>
+                    <span>+254</span> &nbsp; <span> 704</span>&nbsp; <span>413</span> &nbsp; <span>577</span>
                 </p>
                 <a class="github" href="https://github.com/murageyun" target="_blank">
                     <span class="icon github-icon">
@@ -131,7 +131,7 @@
             </address>
         </div>
 
-        <form action="#" class="contact-form">
+        <form class="contact-form" id="contact-form">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" minlength="1" required>
@@ -142,11 +142,12 @@
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" placeholder="Your message" rows="6" minlength="5"></textarea>
+                <textarea id="message" placeholder="Your message" rows="6" minlength="5" required></textarea>
             </div>
             <div>
-                <button type="button" class="btn btn-primary" id="contactFormSubmitForm">Let's talk</button>
-                <div role="progressbar" title="Form submission in progress" class="btn btn-primary submission-wait d-none" id="submissionLoader">
+                <button type="submit" class="btn btn-primary" id="contactFormSubmitForm">Let's talk</button>
+                <div role="progressbar" title="Form submission in progress"
+                     class="btn btn-primary submission-wait d-none" id="submissionLoader">
                     <div class="loader"></div>
                 </div>
             </div>
