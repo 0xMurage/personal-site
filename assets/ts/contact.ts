@@ -5,6 +5,7 @@ import {Agent, GetResult} from "@fingerprintjs/fingerprintjs";
 window.addEventListener('DOMContentLoaded', () => {
     lazyloadScript('/assets/js/fingerprintjs@3.3.2.min.js');
     contactForm();
+    contactFormValidity();
 });
 
 function contactForm() {
@@ -16,8 +17,37 @@ function contactForm() {
                 .then((agent: Agent) => agent.get())
                 .then((agent) => sendMessage(agent))
         })
+    }
 }
+
+function contactFormValidity() {
+    [{
+        elem: document.getElementById('name') as HTMLInputElement,
+        message: 'Please provide your name',
+    },
+        {
+            elem: document.getElementById('email') as HTMLInputElement,
+            message: 'Please provide a valid email address',
+        },
+        {
+            elem: document.getElementById('message') as HTMLTextAreaElement,
+            message: 'Please type your message',
+        },
+    ].map(({elem,message}) => {
+        if (elem) {
+            elem.addEventListener('invalid', () => {
+                elem.setCustomValidity(message);
+                elem.classList.add('is-invalid');
+            });
+
+            elem.addEventListener('input', () => {
+                elem.setCustomValidity('');
+                elem.classList.remove('is-invalid');
+            });
+        }
+    })
 }
+
 
 
 function sendMessage(agent: GetResult) {

@@ -72,6 +72,12 @@ main.main {
           padding-bottom: 5px;
           font-weight: 400;
         }
+
+          input, textarea {
+            &:invalid.is-invalid {
+              border: 1px solid #f16363;
+            }
+        }
       }
 
       .btn {
