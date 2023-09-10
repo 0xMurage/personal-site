@@ -65,7 +65,7 @@ function sendMessage(agent: GetResult) {
         loaderFormBtn.classList.remove('d-none')
     }
 
-    fetch(`https://murageyun.com/api/v1/messages`, {
+    fetch(`https://murage.in/api/v1/messages`, {
         method: 'POST',
         headers: {'accept': 'application/json', 'content-type': 'application/json'},
         body: JSON.stringify(payload)
