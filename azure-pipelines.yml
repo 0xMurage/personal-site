@@ -1,0 +1,36 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+    - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UseNode@1
+  displayName: 'Install Node.js'
+  inputs:
+    version: '14.x'
+
+- script: npm install yarn -g
+  displayName: 'Install Yarn globally'
+
+- script: |
+    yarn install --frozen-lockfile
+    yarn run build
+  displayName: 'Install dependencies and build'
+
+- script:  |
+    yarn add -D html-minifier
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true index.html -o index.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true portfolio.html -o portfolio.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true resume.html -o resume.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true 404.html -o 404.html
+  displayName: Naively minify large html files
