@@ -4,18 +4,33 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - main
+    - master
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
+- task: UseNode@1
   displayName: 'Install Node.js'
+  inputs:
+    version: '14.x'
+
+- script: npm install yarn -g
+  displayName: 'Install Yarn globally'
 
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    yarn install --frozen-lockfile
+    yarn run build
+  displayName: 'Install dependencies and build'
+
+- script:  |
+    yarn add -D html-minifier
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true index.html -o index.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true portfolio.html -o portfolio.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true resume.html -o resume.html
+    npx html-minifier --collapse-whitespace --remove-comments --minify-js true 404.html -o 404.html
+  displayName: Naively minify large html files
